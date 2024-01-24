@@ -1,0 +1,33 @@
+public class Solution {
+public static int Solution(int[] x, int[] y) {
+    // Your code here
+    int rtrn = 0;
+    int alength = x.length > y.length ? x.length : y.length;
+    int blength = x.length < y.length ? x.length : y.length;
+    boolean xlength = x.length > y.length;
+    for (int i = 0; i < alength; i++) {
+        boolean elemFound = false;
+        if (xlength) {
+            for (int j = 0; j < blength; j++) {
+                if (x[i] == y[j]) {
+                    elemFound = true;
+                    break;
+                }
+            }
+            if (!elemFound) {
+                rtrn = x[i];
+            }
+        } else {
+            for (int j = 0; j < blength; j++) {
+                if (y[i] == x[j]) {
+                    elemFound = true;
+                    break;
+                }
+            }
+            if (!elemFound) {
+                rtrn = y[i];
+            }
+        }
+    }
+    return rtrn;
+}}
