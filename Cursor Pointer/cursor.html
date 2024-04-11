@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cursor</title>
+    <style>
+      body {
+        background: #1b2430;
+      }
+      .follow-div {
+        width: 10px;
+        height: 10px;
+        background: #ffffff;
+        border-radius: 100%;
+        transition: opacity 5000ms ease;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="follow-div" id="following"></div>
+  </body>
+
+  <script>
+    const follow = document.getElementById('following')
+    console.log('Golloe')
+
+    window.onmousemove = (e) => {
+      const x = e.clientX - follow.offsetWidth / 0.85,
+        y = e.clientY - follow.offsetHeight / 0.9
+
+      const keyframes = {
+        transform: `translate(${x}px, ${y}px)`,
+      }
+
+      follow.animate(keyframes, {
+        duration: 800,
+        fill: 'forwards',
+      })
+    }
+  </script>
+</html>
